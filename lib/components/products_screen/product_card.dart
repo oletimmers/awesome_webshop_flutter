@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:awesome_webshop/components/products_screen/product_detail.dart';
 import 'package:awesome_webshop/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,9 +12,7 @@ class ProductCard extends StatelessWidget {
 
   ProductCard({required this.product});
 
-  MemoryImage getImage() {
-    return MemoryImage(base64Decode(product.imgBase64));
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,23 +29,24 @@ class ProductCard extends StatelessWidget {
                 builder: (BuildContext context) => Container(
                   height: MediaQuery.of(context).size.height * 0.85,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.teal,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30.0),
                       topRight: Radius.circular(30.0),
                     ),
                   ),
+                  child: ProductDetail(product: product),
                 ),
               );
             },
             child: Card(
-              color: Colors.teal.shade900,
+              color: Colors.teal.shade500,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0),
               ),
               clipBehavior: Clip.antiAlias,
               child: Image(
-                image: getImage(),
+                image: product.getImage(),
               ),
             ),
           ),
@@ -67,7 +67,7 @@ class ProductCard extends StatelessWidget {
               ),
             ),
             Text(
-              '€ ${product.price.toString().replaceFirst('.', ',')}',
+              product.getPriceFormatted(),
               style: GoogleFonts.comfortaa(
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
