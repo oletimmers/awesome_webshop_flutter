@@ -1,7 +1,9 @@
 import 'package:awesome_webshop/models/product.dart';
+import 'package:awesome_webshop/models/winkelmandje.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetail extends StatelessWidget {
   final Product product;
@@ -109,7 +111,10 @@ class ProductDetail extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: FloatingActionButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // TODO: Winkelmandje-provider
+                    Provider.of<Winkelmandje>(context, listen: false).addProduct(product);
+                  },
                 child: Icon(Icons.shopping_cart),
               ),
             ),

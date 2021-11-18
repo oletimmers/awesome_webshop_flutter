@@ -1,8 +1,9 @@
-import 'package:awesome_webshop/screens/account_screen.dart';
-import 'package:awesome_webshop/screens/products_screen.dart';
-import 'package:awesome_webshop/screens/shopping_cart_screen.dart';
+import 'package:awesome_webshop/models/winkelmandje.dart';
+import 'package:badges/badges.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class NavigationBar extends StatelessWidget {
   final int currentIndex;
@@ -10,20 +11,35 @@ class NavigationBar extends StatelessWidget {
 
   NavigationBar({this.currentIndex = 0, required this.changeScreenFunction});
 
-
+  Widget getWwIcon(BuildContext context, List<WinkelmandProduct> products) {
+    bool hasProducts = products.isNotEmpty;
+    if (hasProducts) {
+      return Badge(
+        child: Icon(Icons.shopping_basket),
+        badgeColor: Colors.red,
+        badgeContent: Text(products.length.toString(),
+          style: GoogleFonts.roboto(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),),
+      );
+    } else {
+      return Icon(Icons.shopping_basket);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.shifting,
-      items: const <BottomNavigationBarItem>[
+      items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.storefront),
           label: 'Producten',
           backgroundColor: Colors.white,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_basket),
+          icon: getWwIcon(context, Provider.of<Winkelmandje>(context).productenInMandje),
           label: 'Winkelmandje',
           backgroundColor: Color(0xFFAED581),
         ),
