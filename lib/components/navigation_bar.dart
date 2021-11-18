@@ -1,3 +1,4 @@
+import 'package:awesome_webshop/models/winkelmand_product.dart';
 import 'package:awesome_webshop/models/winkelmandje.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';

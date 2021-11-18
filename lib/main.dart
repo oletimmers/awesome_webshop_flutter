@@ -1,7 +1,9 @@
 import 'package:awesome_webshop/models/winkelmandje.dart';
 import 'package:awesome_webshop/screens/account_screen.dart';
+import 'package:awesome_webshop/screens/login_screen.dart';
 import 'package:awesome_webshop/screens/main_screen.dart';
 import 'package:awesome_webshop/screens/products_screen.dart';
+import 'package:awesome_webshop/screens/registration_screen.dart';
 import 'package:awesome_webshop/screens/shopping_cart_screen.dart';
 import 'package:awesome_webshop/screens/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -47,6 +49,8 @@ class MyApp extends StatelessWidget {
           ProductsScreen.id: (context) => MainScreen(initialIndex: 0,),
           ShoppingCartScreen.id: (context) => MainScreen(initialIndex: 1,),
           AccountScreen.id: (context) => MainScreen(initialIndex: 2,),
+          RegistrationScreen.id: (context) => RegistrationScreen(),
+          LoginScreen.id: (context) => LoginScreen(),
         },
       ),
     );

@@ -112,8 +112,12 @@ class ProductDetail extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: FloatingActionButton(
                   onPressed: () {
-                    // TODO: Winkelmandje-provider
                     Provider.of<Winkelmandje>(context, listen: false).addProduct(product);
+                    Navigator.pop(context);
+                    final snackBar = SnackBar(
+                      content: const Text('Product toegevoegd aan Winkelmandje'),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   },
                 child: Icon(Icons.shopping_cart),
               ),

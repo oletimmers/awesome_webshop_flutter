@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:awesome_webshop/models/product.dart';
+import 'package:awesome_webshop/models/winkelmand_product.dart';
 import 'package:flutter/material.dart';
 
 class Winkelmandje extends ChangeNotifier {
@@ -29,28 +30,21 @@ class Winkelmandje extends ChangeNotifier {
     notifyListeners();
   }
 
+  void decreaseCountOfProduct(int productIndex) {
+    productenInMandje[productIndex].decreaseCount();
+    notifyListeners();
+  }
+
   void setCountOfProduct(int productIndex, int newCount) {
     productenInMandje[productIndex].setCount(newCount);
     notifyListeners();
   }
-  
-  
 
-}
-
-class WinkelmandProduct{
-  final Product product;
-  int count = 1;
-  
-  WinkelmandProduct(this.product);
-  
-  void increaseCount () {
-    count ++;
+  String getTotaalPrice() {
+    double price = 0;
+    for(WinkelmandProduct wmP in productenInMandje) {
+      price += wmP.getPriceWithCount();
+    }
+    return '€ ${price.toStringAsFixed(2).replaceFirst('.', ',')}';
   }
-  
-  void setCount(int newCount) {
-    count = newCount;
-  }
-
-
 }

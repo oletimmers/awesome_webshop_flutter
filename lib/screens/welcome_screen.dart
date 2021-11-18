@@ -2,7 +2,6 @@ import 'package:awesome_webshop/components/awesome_webshop_logo.dart';
 import 'package:awesome_webshop/components/welcome_screen/welcome_button.dart';
 import 'package:awesome_webshop/screens/shopping_cart_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
 import 'account_screen.dart';

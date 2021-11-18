@@ -64,6 +64,8 @@ class ProductCard extends StatelessWidget {
                     letterSpacing: 0.3,
                     color: Colors.teal.shade300),
                 textAlign: TextAlign.start,
+                overflow: TextOverflow.ellipsis,
+
               ),
             ),
             Text(
