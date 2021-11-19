@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class Winkelmandje extends ChangeNotifier {
 
-  final List<WinkelmandProduct> productenInMandje = [];
+  List<WinkelmandProduct> productenInMandje = [];
 
   void addProduct(Product product) {
     Iterable<WinkelmandProduct> existingProduct = productenInMandje.where((wwProduct) => wwProduct.product.id == product.id);
@@ -17,6 +17,11 @@ class Winkelmandje extends ChangeNotifier {
       productenInMandje.add(WinkelmandProduct(product));
       notifyListeners();
     }
+  }
+
+  void emptyWinkelmandje() {
+    productenInMandje = [];
+    notifyListeners();
   }
 
 

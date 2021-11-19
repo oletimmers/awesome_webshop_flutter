@@ -1,6 +1,8 @@
+import 'package:awesome_webshop/components/account_screen/user_orders.dart';
 import 'package:awesome_webshop/screens/login_screen.dart';
 import 'package:awesome_webshop/screens/registration_screen.dart';
 import 'package:awesome_webshop/screens/welcome_screen.dart';
+import 'package:awesome_webshop/service/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,13 +17,7 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
-  bool isLoggedInWithEmail() {
-    if (auth.currentUser == null) {
-      return false;
-    } else {
-      return !auth.currentUser!.isAnonymous;
-    }
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +25,13 @@ class _AccountScreenState extends State<AccountScreen> {
       padding: EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: isLoggedInWithEmail() ? [
+        children: AuthService.instance.isLoggedInWithEmail() ? [
           Text('Je Account',
             style: GoogleFonts.roboto(
                 fontSize: 26
             ),
           ),
+          UserOrders(),
           ElevatedButton(
               style: ButtonStyle(
                 backgroundColor:

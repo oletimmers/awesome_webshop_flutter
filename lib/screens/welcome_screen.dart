@@ -1,5 +1,7 @@
 import 'package:awesome_webshop/components/awesome_webshop_logo.dart';
 import 'package:awesome_webshop/components/welcome_screen/welcome_button.dart';
+import 'package:awesome_webshop/screens/login_screen.dart';
+import 'package:awesome_webshop/screens/registration_screen.dart';
 import 'package:awesome_webshop/screens/shopping_cart_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -65,8 +67,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                 ),
                 verified ? WelcomeButton(text: 'Producten') : SizedBox(),
-                verified ? WelcomeButton(text: 'Registreer nu', routeID: ShoppingCartScreen.id,) : SizedBox(),
-                verified ? WelcomeButton(text: 'Log in', routeID: AccountScreen.id,) : SizedBox(),
+                verified ? WelcomeButton(text: 'Registreer nu', routeID: RegistrationScreen.id,) : SizedBox(),
+                verified ? WelcomeButton(text: 'Log in', routeID: LoginScreen.id,) : SizedBox(),
               ],
             ),
           ),

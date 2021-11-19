@@ -50,6 +50,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     padding: const EdgeInsets.all(48.0),
                     child: Hero(
                       tag: kLogoHeroTag,
+                      flightShuttleBuilder: _flightShuttleBuilder,
                       child: AwesomeWebshopLogo(
                         fontSize: 48.0,
                       ),
@@ -137,4 +138,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       ),
     );
   }
+}
+Widget _flightShuttleBuilder(
+    BuildContext flightContext,
+    Animation<double> animation,
+    HeroFlightDirection flightDirection,
+    BuildContext fromHeroContext,
+    BuildContext toHeroContext,
+    ) {
+  return DefaultTextStyle(
+    style: DefaultTextStyle.of(toHeroContext).style,
+    child: toHeroContext.widget,
+  );
 }
