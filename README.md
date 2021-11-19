@@ -2,6 +2,11 @@
 
 IKFRAM eindproduct
 
+## Over dit project
+Dit is de flutter app die ik heb gemaakt voorde module van IKFRAM op de Hogeschool Leiden.
+
+Het is een webshop die is aangesloten op een Firestore-database, verder is ook de authenticatie geregeld via Firebase.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
