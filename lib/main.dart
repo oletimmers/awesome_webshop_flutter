@@ -2,6 +2,7 @@ import 'package:awesome_webshop/models/winkelmandje.dart';
 import 'package:awesome_webshop/screens/account_screen.dart';
 import 'package:awesome_webshop/screens/login_screen.dart';
 import 'package:awesome_webshop/screens/main_screen.dart';
+import 'package:awesome_webshop/screens/new_product_screen.dart';
 import 'package:awesome_webshop/screens/products_screen.dart';
 import 'package:awesome_webshop/screens/registration_screen.dart';
 import 'package:awesome_webshop/screens/shopping_cart_screen.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider<Winkelmandje>(
       create: (_) => Winkelmandje(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Awesome Webshop',
         theme: ThemeData(
           // This is the theme of your application.
@@ -51,6 +53,7 @@ class MyApp extends StatelessWidget {
           AccountScreen.id: (context) => MainScreen(initialIndex: 2,),
           RegistrationScreen.id: (context) => RegistrationScreen(),
           LoginScreen.id: (context) => LoginScreen(),
+          NewProductScreen.id: (context) => NewProductScreen(),
         },
       ),
     );

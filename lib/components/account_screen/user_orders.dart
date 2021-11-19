@@ -12,7 +12,6 @@ class UserOrders extends StatefulWidget {
 }
 
 class _UserOrdersState extends State<UserOrders> {
-  bool showSpinner = true;
 
   List<Widget> orderWidgets = [];
 
@@ -38,7 +37,6 @@ class _UserOrdersState extends State<UserOrders> {
       ));
     }
     setState(() {
-      showSpinner = false;
       orderWidgets = newOrderWidgets;
     });
   }
@@ -56,13 +54,10 @@ class _UserOrdersState extends State<UserOrders> {
                 fontSize: 18
             ),
           ),
-          ModalProgressHUD(
-            inAsyncCall: showSpinner,
-            child: SizedBox(
-              height: 150.0,
-              child: ListView(
-                children: orderWidgets,
-              ),
+          SizedBox(
+            height: 150.0,
+            child: ListView(
+              children: orderWidgets,
             ),
           ),
         ],
